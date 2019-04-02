@@ -43,10 +43,14 @@ Window {
 
         anchors.top: rectListId.bottom
 
-        color: "white"; width: 240; height: 150
+        color: "white"; width: 400; height: 150
 
         Column {
             anchors.centerIn: parent; spacing: 15
+
+            Text {
+                text: "Click on item an type a, b, or c to see that it has the focus"
+            }
 
             MyClickableWidget {
                 focus: true             //set this MyWidget to receive the focus
@@ -86,6 +90,8 @@ Window {
         anchors.top: rectId.bottom
 
         text: activeFocus ? "I have active focus!" : "I do not have active focus"
+
+        MouseArea { anchors.fill: focusTextId; onClicked: { focusTextId.focus = true } }
     }
 
     Text {
@@ -95,6 +101,8 @@ Window {
 
         anchors.top: focusTextId.bottom
 
-        text: activeFocus ? "Another item has active focus!" : "Another item does not have active focus"
+        text: activeFocus ? "I have active focus!" : "I do not have active focus"
+
+        MouseArea { anchors.fill: anotherFocusTextId; onClicked: { anotherFocusTextId.focus = true } }
     }
 }
